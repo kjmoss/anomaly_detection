@@ -1,3 +1,5 @@
+This is a submission to the insight data challenge. Challenge details can be found at https://github.com/InsightDataScience/anomaly_detection
+
 Detailed documentation about the code is provided in the code itself. Here, I'll provide some general descriptions about the techniques used.
 
 There are two phases: The build phase and the stream phase.
@@ -5,7 +7,7 @@ There are two phases: The build phase and the stream phase.
 Build phase: Build the network based on batch_log.json.
   - Each user is assigned a unique User object. A Network object is used as a container for the Users.
   - The User object stores the user's friends and recent purchases (up to size T). It also stores purchases in the user's social network. Purchases are stored as their own object, so any list that stores purchases is simply storing a pointer to a purchase object rather than a duplicate record.
-  - When the network is initially being built, we don't need to flag anomolous purchases, so every purchase is simply stored in the purchaser's list. Every befriend or unfriend event only interacts with the affected users.
+  - When the network is initially being built, we don't need to flag anomolous purchases, so every purchase is simply stored in the purchaser's list. Every befriend or unfriend event only interacts with the affected users at this stage.
 	
 Stream phase: Begin updating the network based on stream_log.json.
   - It is now important for each user to have an up-to-date list of the latest purchases within their social network when they personally make a new purchase. Rather than updating the list for every befriend/unfriend event that may affect the user (which would be a lot of adding and removing), the list is rebuilt from scratch when necessary.	Each user has a flag to indicate when their social network purchase list needs to be rebuilt. Since it was not built during the first phase, each user is begins flagged. They are only flagged otherwise when a befriend/unfriend connection is made that would affect their network. (The code could easily be changed to treat the build phase as a stream phase.)
