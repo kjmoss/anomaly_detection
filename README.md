@@ -1,4 +1,4 @@
-This is a submission to the insight data challenge. Challenge details can be found at https://github.com/InsightDataScience/anomaly_detection
+This is a submission to the insight data challenge. Challenge details can be found at https://github.com/InsightDataScience/anomaly_detection.
 
 Detailed documentation about the code is provided in the code itself. Here, I'll provide some general descriptions about the techniques used.
 
