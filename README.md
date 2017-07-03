@@ -4,7 +4,7 @@ There are two phases: The build phase and the stream phase.
 
 Build phase: Build the network based on batch_log.json.
   - Each user is assigned a unique User object. A Network object is used as a container for the Users.
-  - The User object stores the user's friends and recent purchases (up to size T). It also stores purchases in the user's social network; this will be talked about more later. Purchases are stored as their own object, so any list that stores purchases is simply storing a pointer to a purchase object rather than a duplicate record of the purchase.
+  - The User object stores the user's friends and recent purchases (up to size T). It also stores purchases in the user's social network. Purchases are stored as their own object, so any list that stores purchases is simply storing a pointer to a purchase object rather than a duplicate record.
   - When the network is initially being built, we don't need to flag anomolous purchases, so every purchase is simply stored in the purchaser's list. Every befriend or unfriend event only interacts with the affected users.
 	
 Stream phase: Begin updating the network based on stream_log.json.
